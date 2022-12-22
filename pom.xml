@@ -48,7 +48,9 @@
 			 </configuration>
 		 </plugin>
 	 </plugins>
+	 <defaultGoal>package</defaultGoal>
  </build>
+
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
