@@ -5,12 +5,19 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import utils.TestContextSetup;
 
-public class steps {
+public class LoginPageStepDefinition {
+public WebDriver driver;
+public String LoginPage;
+public String CreateBusinessPage;
+TestContextSetup testContextSetup;
 
-    WebDriver driver;
+public LoginPageStepDefinition(TestContextSetup testContextSetup)
+{
+    this.testContextSetup=testContextSetup;
+}
 
 
     @Given("User navigates to the UrPharm Store Business Admin website")

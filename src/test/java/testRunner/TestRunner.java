@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
         },    //Mandatory to capture failures
         dryRun=false,
         monochrome=true,
-        tags = "@sanity"	//Scenarios tagged with @sanity,
+        tags = "@pharmacy or @sanity"	//Scenarios tagged with @sanity,
 )
 
 public class TestRunner {
