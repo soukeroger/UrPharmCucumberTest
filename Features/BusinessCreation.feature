@@ -4,7 +4,7 @@ Feature: UrPharm Admin Creates Pharmacy & Supermarket/Franchise Accounts
     Given User navigates to UrPharmStore Admin website
     When user enters a valid username and password
     And click on the login button
-    When The Admin clicks on the Create Business button
+    And The Admin clicks on the Create Business button
     And Enters all the details for the Pharmacy
     Then A UrPharm Businees Portal is successfully created for the New Pharmacy With MTN MOMO as their preferred method of payment
 #@pharmacy

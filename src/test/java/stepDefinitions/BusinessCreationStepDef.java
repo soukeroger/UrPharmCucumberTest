@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -9,6 +10,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import utils.TestContextSetup;
+
+import java.util.concurrent.TimeUnit;
 
 public class BusinessCreationStepDef {
     public WebDriver driver;
@@ -21,27 +24,27 @@ public class BusinessCreationStepDef {
 
     @Given("User navigates to UrPharmStore Admin website")
     public void user_navigates_to_ur_pharm_store_admin_website() {
-        System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
-        driver = new ChromeDriver();
+        System.setProperty("webdriver.gecko.driver", "/usr/local/bin/geckodriver");
+        driver = new FirefoxDriver();
         driver.get("https://dev-store.urpharm.com/");
     }
     @When("user enters a valid username and password")
-    public void user_enters_a_valid_username_and_password() throws InterruptedException {
+    public void user_enters_a_valid_username_and_password() {
         driver.findElement(By.id("mat-input-0")).sendKeys("support@urpharm.com");
         driver.findElement(By.id("mat-input-1")).sendKeys("Implementation@4");
+        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
     }
 
-    @When("click on the login button")
-    public void click_on_the_login_button() throws InterruptedException{
+    @And("click on the login button")
+    public void click_on_the_login_button() {
         driver.findElement(By.xpath("//button[. = 'Login']")).click();
-        Thread.sleep(1000);
+        driver.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
     }
 
-    @When("The Admin clicks on the Create Business button")
+    @And("The Admin clicks on the Create Business button")
     public void the_admin_clicks_on_the_create_business_button() throws InterruptedException{
         driver.findElement(By.xpath("//app-list-businesses/div/div[2]//span")).click();
-        Thread.sleep(1000);
 
 
     }
@@ -105,13 +108,13 @@ public class BusinessCreationStepDef {
 //    public void the_ur_pharm_admin_successfully_signs_in()throws InterruptedException {
 //        driver.findElement(By.id("mat-input-0")).sendKeys("support@urpharm.com");
 //        driver.findElement(By.id("mat-input-1")).sendKeys("Implementation@4");
-//        driver.findElement(By.xpath("/html/body/app-root/app-authentication/div/div/app-login/div[2]/div/mat-card/form/div[4]/button")).click();
-//        Thread.sleep(10000);
+//        driver.findElement(By.xpath("//button[. = 'Login")).click();
+//        Thread.sleep(1000);
 //    }
 //
 //    @When("Clicks on the Create Business button to create a new Pharmacy")
 //    public void clicks_on_the_create_business_button_to_create_a_new_pharmacy() {
-//        driver.findElement(By.xpath("/html/body/app-root/app-admin-dashboard/div/mat-sidenav-container/mat-sidenav-content/app-list-businesses/div/div[2]/button/span")).click();
+//        driver.findElement(By.xpath("//span[. = ' Create businessadd']")).click();
 //
 //    }
 //
@@ -158,13 +161,13 @@ public class BusinessCreationStepDef {
 //    public void the_admin_successfully_logs_in_and_is_redirected_to_the_landing_page() throws InterruptedException {
 //        driver.findElement(By.id("mat-input-0")).sendKeys("support@urpharm.com");
 //        driver.findElement(By.id("mat-input-1")).sendKeys("Implementation@4");
-//        driver.findElement(By.xpath("/html/body/app-root/app-authentication/div/div/app-login/div[2]/div/mat-card/form/div[4]/button")).click();
-//        Thread.sleep(10000);
+//        driver.findElement(By.xpath("//button[. = 'Login")).click();
+//        Thread.sleep(1000);
 //    }
 //
 //    @When("Clicks on the Create Business button to create another Pharmacy account")
 //    public void clicks_on_the_create_business_button_to_create_another_pharmacy_account() {
-//        driver.findElement(By.xpath("/html/body/app-root/app-admin-dashboard/div/mat-sidenav-container/mat-sidenav-content/app-list-businesses/div/div[2]/button/span")).click();
+//        driver.findElement(By.xpath("//span[. = ' Create businessadd']")).click();
 //
 //    }
 //
