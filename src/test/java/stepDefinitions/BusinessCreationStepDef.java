@@ -29,17 +29,18 @@ public class BusinessCreationStepDef {
     public void user_enters_a_valid_username_and_password() throws InterruptedException {
         driver.findElement(By.id("mat-input-0")).sendKeys("support@urpharm.com");
         driver.findElement(By.id("mat-input-1")).sendKeys("Implementation@4");
+
     }
 
     @When("click on the login button")
     public void click_on_the_login_button() throws InterruptedException{
-        driver.findElement(By.xpath("/html/body/app-root/app-authentication/div/div/app-login/div[2]/div/mat-card/form/div[4]/button")).click();
-        Thread.sleep(5000);
+        driver.findElement(By.xpath("//button[. = 'Login']")).click();
+        Thread.sleep(1000);
     }
 
     @When("The Admin clicks on the Create Business button")
     public void the_admin_clicks_on_the_create_business_button() throws InterruptedException{
-        driver.findElement(By.xpath("/html/body/app-root/app-admin-dashboard/div/mat-sidenav-container/mat-sidenav-content/app-list-businesses/div/div[2]/button/span")).click();
+        driver.findElement(By.xpath("//app-list-businesses/div/div[2]//span")).click();
         Thread.sleep(1000);
 
 
